@@ -42,7 +42,7 @@ $template                       Messages,"/var/log/syslog_server/%HOSTNAME%/mess
 
 auth,authpriv.*			?Auth
 *.*;auth,authpriv.none		-?Syslog
-#cron.*				?Cron
+cron.*				?Cron
 daemon.*			-?Daemon
 kern.*				-?Kern
 lpr.*				-?LPR
