@@ -40,16 +40,16 @@ $template                       User,"/var/log/syslog_server/%HOSTNAME%/user.log
 $template                       Debug,"/var/log/syslog_server/%HOSTNAME%/debug"
 $template                       Messages,"/var/log/syslog_server/%HOSTNAME%/messages"
 
-auth,authpriv.*			?Auth
+auth,authpriv.*			-?Auth
 *.*;auth,authpriv.none		-?Syslog
-cron.*				?Cron
+cron.*				-?Cron
 daemon.*			-?Daemon
 kern.*				-?Kern
 lpr.*				-?LPR
 mail.*				-?MailLog
 mail.info			-?MailInfo
 mail.warn			-?MailWarn
-mail.err			?MailErr
+mail.err			-?MailErr
 user.*				-?User
 
 
