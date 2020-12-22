@@ -1,6 +1,19 @@
 ---
 - include:              '../tasks/install_packages.yml'
 - include:              '../tasks/template_files.yml'
+- include:              '../tasks/template_files.yml'
+  vars:
+    template_files:
+      - owner:          'root'
+        group:          'root'
+        mode:           '0640'
+        src:            'templates/conf/logrotate.d/syslog_client.j2'
+        dest:           "/etc/logrotate.d/syslog_client_{{ syslog_client }}"
+  with_items:
+    - "{{ groups['syslog_client'] }}"
+    - "{{ inventory_hostname }}"
+  loop_control:
+    loop_var:           'syslog_client'
 - include:              '../tasks/start_services.yml'
 - include:              '../tasks/enable_services.yml'
 - include:              '../tasks/restart_services.yml'

@@ -7,7 +7,7 @@ template_files:
   - owner:              'root'
     group:              'root'
     mode:               '0644'
-    src:                "{{ role_path }}/templates/rsyslog.conf.j2"
+    src:                "{{ role_path }}/templates/conf/rsyslog.conf.j2"
     dest:               '/etc/rsyslog.conf'
 start_services:
   - 'rsyslog'
