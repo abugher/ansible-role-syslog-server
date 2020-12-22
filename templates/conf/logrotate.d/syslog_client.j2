@@ -1,14 +1,15 @@
 /var/log/syslog_server/{{ syslog_client }}/syslog
 {
-	rotate 7
-	daily
-	missingok
-	notifempty
-	delaycompress
-	compress
-	postrotate
-		/usr/lib/rsyslog/rsyslog-rotate
-	endscript
+        rotate 7
+        daily
+        missingok
+        notifempty
+        delaycompress
+        compress
+        postrotate
+#               /usr/lib/rsyslog/rsyslog-rotate
+                service rsyslog rotate > /dev/null
+        endscript
 }
 
 /var/log/syslog_server/{{ syslog_client }}/mail.info
@@ -24,14 +25,15 @@
 /var/log/syslog_server/{{ syslog_client }}/debug
 /var/log/syslog_server/{{ syslog_client }}/messages
 {
-	rotate 4
-	weekly
-	missingok
-	notifempty
-	compress
-	delaycompress
-	sharedscripts
-	postrotate
-		/usr/lib/rsyslog/rsyslog-rotate
-	endscript
+        rotate 4
+        weekly
+        missingok
+        notifempty
+        compress
+        delaycompress
+        sharedscripts
+        postrotate
+#               /usr/lib/rsyslog/rsyslog-rotate
+                service rsyslog rotate > /dev/null
+        endscript
 }
