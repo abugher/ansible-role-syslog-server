@@ -15,4 +15,3 @@ enable_services:
   - 'rsyslog'
 restart_services:
   - 'rsyslog'
-  - 'ssl_identity'
